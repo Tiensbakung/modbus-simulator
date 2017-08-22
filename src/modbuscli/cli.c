@@ -102,7 +102,7 @@ int main()
                                 printf("%s", "\n");
                         }
                 } else if (strcmp(cmd, "read_hr") == 0) {
-                        rc = modbus_read_registers(ctx, 0, 1, tab_reg);
+                        rc = modbus_read_registers(ctx, addr, nb, tab_reg);
                         if (rc == -1) {
                                 printf("%s\n", modbus_strerror(errno));
                         } else {
