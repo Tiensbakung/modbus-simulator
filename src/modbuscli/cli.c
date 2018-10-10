@@ -35,6 +35,8 @@ int main()
                                 continue;
                         }
                         modbus_set_debug(ctx, 1);
+                        modbus_set_error_recovery(
+                                ctx, MODBUS_ERROR_RECOVERY_PROTOCOL);
                         if (modbus_connect(ctx) == -1) {
                                 modbus_free(ctx);
                                 ctx = NULL;
@@ -62,6 +64,9 @@ int main()
                                 continue;
                         }
                         modbus_set_debug(ctx, 1);
+                        modbus_set_error_recovery(
+                                ctx, MODBUS_ERROR_RECOVERY_PROTOCOL);
+                        modbus_set_response_timeout(ctx, 1, 0);
                         if (modbus_connect(ctx) == -1) {
                                 modbus_free(ctx);
                                 ctx = NULL;
